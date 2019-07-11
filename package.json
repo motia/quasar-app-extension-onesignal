@@ -19,9 +19,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motia/quasar-onesignal.git"
+    "url": "git+https://github.com/motia/quasar-app-extension-onesignal.git"
   },
-  "homepage": "https://github.com/motia/quasar-onesignal",
+  "homepage": "https://github.com/motia/quasar-app-extension-onesignal",
   "license": "MIT",
   "keywords": [
     "quasar",
@@ -37,5 +37,8 @@
     "eslint": "^6.0.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.2.3"
+  },
+  "bugs": {
+    "url": "https://github.com/motia/quasar-app-extension-onesignal/issues"
   }
 }
