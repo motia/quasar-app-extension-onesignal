@@ -1,27 +1,38 @@
 export default async ({ app, Vue }) => {
-  alert('over here')
+  const onClient = typeof window !== 'undefined'
+
   app.$oneSignal = Vue.prototype.$oneSignal = {
-    setup () {
-      if (!process.env.ONESIGNAL_APP_ID) {
+    get instance () {
+      return window && window.OneSignal
+    },
+    setup (appId, initConfig) {
+      if (!onClient) {
         return
       }
+      if (!appId) {
+        throw new Error('quasar-one-signal: app id is required')
+      }
+
       window.OneSignal = window.OneSignal || []
       window.OneSignal.push(function () {
-        window.OneSignal.init({
-          appId: process.env.ONESIGNAL_APP_ID,
-          requiresUserPrivacyConsent: true,
-          autoResubscribe: true,
-          notifyButton: {
-            enable: true
-          },
-          welcomeNotification: {
-            disable: false
+        window.OneSignal.init(Object.assign(
+          initConfig || {},
+          {
+            appId,
+            requiresUserPrivacyConsent: true,
+            autoResubscribe: true,
+            notifyButton: {
+              enable: true
+            },
+            welcomeNotification: {
+              disable: false
+            }
           }
-        })
+        ))
       })
     },
     optIn (externalUserId) {
-      if (!process.env.ONESIGNAL_APP_ID) {
+      if (!onClient) {
         return
       }
       window.OneSignal.provideUserConsent(true)
@@ -31,7 +42,7 @@ export default async ({ app, Vue }) => {
       }
     },
     optOut () {
-      if (!process.env.ONESIGNAL_APP_ID) {
+      if (!onClient) {
         return
       }
       window.OneSignal.removeExternalUserId()
