@@ -1,0 +1,41 @@
+{
+  "name": "quasar-app-extension-onesignal",
+  "version": "0.1.0",
+  "description": "Onesignal Intergration for Quasar in PWA mode",
+  "author": "Mouti'a Benachour",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "lint-fix": "eslint --ext .js,.vue src --fix",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motia/quasar-onesignal.git"
+  },
+  "homepage": "https://github.com/motia/quasar-onesignal",
+  "license": "MIT",
+  "keywords": [
+    "quasar",
+    "app",
+    "app extension",
+    "extension",
+    "onesigal",
+    "push notifications"
+  ],
+  "devDependencies": {
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^5.2.3"
+  }
+}
