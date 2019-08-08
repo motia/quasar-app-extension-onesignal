@@ -10,18 +10,6 @@ yarn add quasar-app-extension-onesignal
 quasar ext invoke onesignal
 ```
 
-Add the script tag to `index.template.html` with the following content
-```
-<!DOCTYPE html>
-<html>
-  <head>
-    ...
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" hid="onesignal" async></script>
-    ...
-  </head>
-</html>
-```
-
 ### PWA mode
 For pwa mode, edit the generated `src-pwa/register-service-worker.js` and change
 `register(process.env.SERVICE_WORKER_FILE, {` to `register('/OneSignalSDKWorker.js', {`

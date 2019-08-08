@@ -1,3 +1,16 @@
+function addScriptTag () {
+  if (this._scriptLoaded || document.getElementById('onesignal')) {
+    return
+  }
+
+  const scriptTag = document.createElement('script')
+  scriptTag.src = 'https://cdn.onesignal.com/sdks/OneSignalSDK.js'
+  scriptTag.id = 'onesignal'
+  scriptTAg.hid = 'onesignal'
+  scriptTag.async = true
+  document.head.appendChild(scriptTag)
+}
+
 export default async ({ app, Vue }) => {
   const onClient = typeof window !== 'undefined'
 
@@ -12,6 +25,7 @@ export default async ({ app, Vue }) => {
       if (!appId) {
         throw new Error('quasar-one-signal: app id is required')
       }
+      addScriptTag()
 
       window.OneSignal = window.OneSignal || []
       window.OneSignal.push(function () {
