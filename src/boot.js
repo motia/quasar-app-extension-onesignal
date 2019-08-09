@@ -1,12 +1,12 @@
 function addScriptTag () {
-  if (this._scriptLoaded || document.getElementById('onesignal')) {
+  if (document.getElementById('onesignal')) {
     return
   }
 
   const scriptTag = document.createElement('script')
   scriptTag.src = 'https://cdn.onesignal.com/sdks/OneSignalSDK.js'
   scriptTag.id = 'onesignal'
-  scriptTAg.hid = 'onesignal'
+  scriptTag.hid = 'onesignal'
   scriptTag.async = true
   document.head.appendChild(scriptTag)
 }
