@@ -18,7 +18,7 @@ export default async ({ app, Vue }) => {
     get instance () {
       return window && window.OneSignal
     },
-    setup (appId, initConfig) {
+    setup (appId, initConfig = {}) {
       if (!onClient) {
         return
       }
@@ -30,7 +30,7 @@ export default async ({ app, Vue }) => {
       window.OneSignal = window.OneSignal || []
       window.OneSignal.push(function () {
         window.OneSignal.init(Object.assign(
-          initConfig || {},
+          initConfig,
           {
             appId,
             requiresUserPrivacyConsent: true,
