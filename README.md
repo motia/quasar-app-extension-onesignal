@@ -2,7 +2,7 @@
 
 Adds [onesignal](https://onesignal.com) push notifications to  [quasar framework](http://github.com/quasarframework/quasar) apps.
 
-> currently only web and pwa are supported
+> web,pwa and corodova are supported
 
 ## Setup
 ```
