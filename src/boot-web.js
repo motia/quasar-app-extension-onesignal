@@ -30,7 +30,6 @@ export default async ({ app, Vue }) => {
       window.OneSignal = window.OneSignal || []
       window.OneSignal.push(function () {
         window.OneSignal.init(Object.assign(
-          initConfig,
           {
             appId,
             requiresUserPrivacyConsent: true,
@@ -41,7 +40,8 @@ export default async ({ app, Vue }) => {
             welcomeNotification: {
               disable: false
             }
-          }
+          },
+          initConfig
         ))
       })
     },
