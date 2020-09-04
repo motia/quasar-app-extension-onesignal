@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-onesignal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Onesignal Intergration for Quasar in PWA mode",
   "author": "Mouti'a Benachour",
   "main": "src/index.js",
