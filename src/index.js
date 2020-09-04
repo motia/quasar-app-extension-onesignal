@@ -33,20 +33,29 @@ function swTransformer(mode, path) {
 
 const extendWebpackForWeb = function (conf, mode) {
   const CopyPlugin = require('copy-webpack-plugin')
+  const copyPluginVersion = require('copy-webpack-plugin/package.json').version
 
   console.log(` App Extension (onesignal): Configure webpack to copy service workers to root directory`)
 
-  conf.plugins.push(new CopyPlugin([
+  const copyPluginPatternOptions = [
     {
       from: path.join(__dirname, 'assets', 'root'),
       to: '.',
       transform: (content, path) => swTransformer(mode, path)
     }
-  ]))
+  ]
+
+  if (parseInt(copyPluginVersion) >= 6) {
+    copyPlugin = new CopyPlugin({ patterns: copyPluginPatternOptions });
+  } else {
+    copyPlugin = new CopyPlugin(copyPluginPatternOptions);
+
+  }
+  conf.plugins.push(copyPlugin)
 }
 
 module.exports = function (api) {
-  api.compatibleWith('@quasar/app', '^1.0.0')
+  api.compatibleWith('@quasar/app', '^1.0.0 || ^2.0.0')
 
   const modeName = api.ctx.modeName
   api.extendQuasarConf((conf) => extendQuasarConf(conf, modeName))
